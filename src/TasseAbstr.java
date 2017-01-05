@@ -49,7 +49,7 @@ class Genitore extends Membro_Famiglia{
                     r.wait();
                 if (r.getComponenti() == n_figli) { // primo genitore, bonus 5%
                     r.add(reddito-(r.riassunto()/100*5));
-                    ;System.out.println(Thread.currentThread().getName()+" dichiara "+reddito+" con bonus");
+                    System.out.println(Thread.currentThread().getName()+" dichiara "+reddito+" con bonus");
                 }else{
                     r.add(reddito);
                     System.out.println(Thread.currentThread().getName()+" dichiara "+reddito);
@@ -66,6 +66,12 @@ public class TasseAbstr {
         Figlio f3=new Figlio(r,"Giovanna");Figlio f4=new Figlio(r,"Isabella");
         Genitore g1=new Genitore(r,"Mamma",4);Genitore g2=new Genitore(r,"Papà",4);
         f1.start();f2.start();g1.start();f3.start();g2.start();f4.start();
+        try { // questo perchè il metodo riassunto dev'essere stampato dopo che i genitori hanno inserito i loro redditi
+            g1.join();
+            g2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println(r.riassunto());
     }
 }
