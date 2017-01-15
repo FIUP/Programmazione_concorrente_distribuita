@@ -34,7 +34,7 @@ public class TavolaCalda {
     void prendi_primo(int i){
         try{
             synchronized(primo) {
-                while(i > prossimo_primo_da_servire)
+                while(i > prossimo_primo_da_servire) // fino a che non è il tuo turno...
                     primo.wait();
                 prossimo_primo_da_servire++;
                 System.out.println(i+" ordinato primo");
