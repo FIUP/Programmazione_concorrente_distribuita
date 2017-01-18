@@ -17,7 +17,7 @@ class Viaggio{
         System.out.println(p.nome + " prenota!");
         viaggiatori.add(p);
         if (viaggiatori.size() < minimo) return false;
-        for (int i = 0; i < viaggiatori.size(); i++) // notifica
+        for (int i = 0; i < viaggiatori.size(); i++) // notifica, ma in questo modo non rispetta la consegna
             viaggiatori.elementAt(i).avvertito = true;
         notifyAll(); // anche notify() sarebbe potuto andare bene(ma non son sicuro)
         return true;
