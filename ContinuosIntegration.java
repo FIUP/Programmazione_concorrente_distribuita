@@ -69,7 +69,7 @@ class Repository {
         new Thread(){
             boolean ok=false;
             public void run(){
-                while(!ok) {
+                while(!ok) { // non proprio bello questo modo: sarebbe da mettere in wait() finchè totS<18, ma poi come posso risvegliare un Thread di una classe anonima?
                     synchronized (lock_totS) {
                         if (totS == 18) {
                             ok = true;
