@@ -39,7 +39,7 @@ class Artigiano extends Thread{
     }
 }
 
-public class artigianoFornitore{
+public class ArtigianoFornitore{
     public static void main(String[] args){
         Fornitore f=new Fornitore();
         Artigiano a=new Artigiano("A",f);
