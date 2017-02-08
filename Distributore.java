@@ -39,7 +39,7 @@ public class Distributore {
         Distributore d=new Distributore();
         String b;
         int a=0,v=0,c=0;
-        for(int i=0;i<100;i++){
+        for(int i=0;i<15;i++){
             int bev=(int)(Math.random()*3);
             if(bev==0){
                 b="acqua";
