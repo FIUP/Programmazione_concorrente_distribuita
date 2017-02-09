@@ -59,7 +59,7 @@ class C1{
     Thread t2=new Thread(){
       public void run(){
         m("UNO");
-        o.f();
+        o.g();
         m("DUE");
       }
     };
