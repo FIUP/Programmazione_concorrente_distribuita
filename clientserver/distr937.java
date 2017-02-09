@@ -1,3 +1,4 @@
+// esercizio 9.3.7 pagina 200
 // Interfaccia condivisa dai Client e dal server
 
 public interface I extends Remote{
