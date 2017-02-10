@@ -11,7 +11,9 @@ class T1 extends Thread{
     // aggiunge qui, dorme, aggiunge quo, print albero
     synchronized(scrittura){ // operazioni di scrittura e lettura assumono il medesimo lock
       a.add("qui");
-      Thread.sleep(100);
+    }
+    sleep(100);
+    synchronized(scrittura){
       a.add("quo");
     }
     a.stampa(); // fuori dal blocco synch perchè la consegna chiede che l'albero possa essere stampato concorrentemente
@@ -25,12 +27,14 @@ class T2 extends Thread{
   T2(Albero a, Object scrittura){this.a=a;this.scrittura=scrittura;}
   public void run(){
     // check quo, BIANCO se c'è, NERO else. Dorme, stampa ROSSO
+   synchronized(stampa){
     synchronized(scrittura){
       if(a.presente("quo")) System.out.println("BIANCO");
       else System.out.println("NERO");
-      Thread.sleep(100);
-      System.out.println("ROSSO");
     }
+      sleep(100);
+      System.out.println("ROSSO");
+   }
   }
 }
 
@@ -41,11 +45,13 @@ class T3 extends Thread{
   T3(Albero a, Object scrittura){this.a=a;this.scrittura=scrittura;}
   public void run(){
     // check qui, UNO se c'è, DUE else. Dorme, stampa TRE
+   synchronized(stampa){
     synchronized(scrittura){
       if(a.presente("QUI")) System.out.println("UNO");
       else System.out.println("DUE");
-      Thread.sleep(100);
-      System.out.println("TRE");
+    }
+    sleep(100);
+    System.out.println("TRE");
     }
   }
 }
@@ -83,7 +89,7 @@ class AlberoImpl implements Iteratore{
 
 public static void main(){
   // abbiamo l'albero a popolato ...
-  Iteratore it=a.itera();
+  Iteratore it=((AlberoImpl)(a)).itera();
   while(a.hasNext())
    System.out.println(it.next());
 }
