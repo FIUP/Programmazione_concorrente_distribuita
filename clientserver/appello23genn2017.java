@@ -24,7 +24,8 @@ class T1 extends Thread{
 class T2 extends Thread{
   Albero a;
   Object scrittura;
-  T2(Albero a, Object scrittura){this.a=a;this.scrittura=scrittura;}
+  Object stampa;
+  T2(Albero a, Object scrittura Object stampa){this.a=a;this.scrittura=scrittura;this.stampa=stampa;}
   public void run(){
     // check quo, BIANCO se c'è, NERO else. Dorme, stampa ROSSO
    synchronized(stampa){
@@ -42,7 +43,8 @@ class T2 extends Thread{
 class T3 extends Thread{
   Albero a;
   Object scrittura;
-  T3(Albero a, Object scrittura){this.a=a;this.scrittura=scrittura;}
+  Object stampa;
+  T3(Albero a, Object scrittura Object stampa){this.a=a;this.scrittura=scrittura;this.stampa=stampa;}
   public void run(){
     // check qui, UNO se c'è, DUE else. Dorme, stampa TRE
    synchronized(stampa){
@@ -60,9 +62,10 @@ public static void main(){
   // Albero a= bla bla...
   // popolamento Albero a
   Object scrittura=new Object();
+  Object stampa=new Object();
   T1 t1=new T1(a,scrittura);
-  T2 t2=new T2(a,scrittura);
-  T3 t3=new T3(a,scrittura);
+  T2 t2=new T2(a,scrittura,stampa);
+  T3 t3=new T3(a,scrittura,stampa);
   t1.start();t2.start();t3.start();
 }
 // SECONDO esercizio
