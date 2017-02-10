@@ -56,6 +56,33 @@ public static void main(){
   T3 t3=new T3(a,scrittura);
   t1.start();t2.start();t3.start();
 }
+// SECONDO esercizio
+
+class AlberoImpl implements Iteratore{
+  public Iteratore itera(){
+    return new Iteratore(){
+      public boolean hasNext(){
+        // return figlioSin || figlioDx; // alla C++
+        if(figlioSin!=NULL || figlioDx!=NULL) return true;
+        return false;
+      }
+      public String next(){
+        if(hasNext()){
+          if(figlioSin!=NULL) return figlioSin.info;
+          return figlioDx.info;
+        }
+        return NULL;
+      }
+    }
+  }
+}
+
+public static void main(){
+  // abbiamo l'albero a popolato ...
+  Iteratore it=a.itera();
+  while(a.hasNext())
+   it.next();
+}
 
 // TERZO esercizio
 /* Le classi AlberoImpl e AlberoVuoto dovranno estendere UnicastRemoteObject
@@ -71,16 +98,11 @@ class T1 extends Thread{
   Albero a;
   T1(Albero a){this.a=a;}
   public void run(){
-  synchronized(a.write){
-      a.add("qui");
-    }
+    a.add("qui");
     Thread.sleep(100);
-    synchronized(a.write){
-        a.add("quo");
-      }
-
-    }
+    a.add("quo");
     a.stampa();
+    }
   }
 }
 
@@ -98,9 +120,10 @@ class Server{
 
 class T2 extends Thread{
   Albero a;
-  T2(Albero a){this.a=a;}
+  Object stampa_client;
+  T2(Albero a,Object s){this.a=a;stampa_client=s;}
   public void run(){
-    synchronized(a.write){
+    synchronized(stampa_client){
       if(a.presente("quo")) System.out.println("BIANCO");
       else System.out.println("NERO");
       Thread.sleep(100);
@@ -109,12 +132,12 @@ class T2 extends Thread{
   }
 }
 
-
 class T3 extends Thread{
   Albero a;
-  T3(Albero a){this.a=a;}
+  Object stampa_client;
+  T3(Albero a,Object s){this.a=a;stampa_client=s;}
   public void run(){
-    synchronized(a.write){
+    synchronized(stampa_client){
       if(a.presente("QUI")) System.out.println("UNO");
       else System.out.println("DUE");
       Thread.sleep(100);
@@ -126,8 +149,9 @@ class T3 extends Thread{
 class Client{
     public static void main(){
       Albero a=(Albero)Naming.lookup("pippo");
-      T2 t2=new T2(a);
-      T3 t3=new T3(a);
+      Object stampa_client=new Object();
+      T2 t2=new T2(a,stampa_client);
+      T3 t3=new T3(a,stampa_client);
     }
 
 }
