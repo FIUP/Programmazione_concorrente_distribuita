@@ -1,6 +1,7 @@
 // mia soluzione appello di p3 del 23 gennaio 2017
 // Non ne assicuro la correttezza
 // Autore: Mattia Bottaro
+// contributi: Nicolta Tintorri
 // primo esercizio
 
 class T1 extends Thread{
