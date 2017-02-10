@@ -59,6 +59,7 @@ public static void main(){
 // SECONDO esercizio
 
 class AlberoImpl implements Iteratore{
+
   public Iteratore itera(){
     return new Iteratore(){
       public boolean hasNext(){
@@ -81,17 +82,18 @@ public static void main(){
   // abbiamo l'albero a popolato ...
   Iteratore it=a.itera();
   while(a.hasNext())
-   it.next();
+   System.out.println(it.next());
 }
 
 // TERZO esercizio
-/* Le classi AlberoImpl e AlberoVuoto dovranno estendere UnicastRemoteObject
+/*
+Le classi AlberoImpl e AlberoVuoto dovranno estendere UnicastRemoteObject
 */
 
 // AGGIUNTE ALLA CLASSE AlberoImpl
 
 class AlberoImpl extends UnicastRemoteObject implements Albero{
-  Object write=new Object();
+  public Albero synchronized add(String s){}
 }
 
 class T1 extends Thread{
