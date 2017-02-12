@@ -1,7 +1,7 @@
 // mia soluzione appello di p3 del 23 gennaio 2017
 // Non ne assicuro la correttezza
 // Autore: Mattia Bottaro
-// contributi: Nicola Tintorri
+// contributi: Nicola Tintorri, DanS4R
 // primo esercizio
 
 class T1 extends Thread{
@@ -75,15 +75,23 @@ class AlberoImpl implements Iteratore{
 
   public Iteratore itera(){
     return new Iteratore(){
-      public boolean hasNext(){
+      private Albero curr=AlberoImpl.this;
+      public boolean hasNext() throws Exception{// un po' dubbio, si potrebbe ritornare false se la prima condizione è vera, true altrimenti
         // return figlioSin || figlioDx; // alla C++
-        if(figlioSin!=NULL || figlioDx!=NULL) return true;
+        if (!(curr instanceof AlberoImpl))
+            throw new Exception();
+
+        if(curr.figlioSin!=NULL || curr.figlioDx!=NULL) return true;
         return false;
       }
       public String next(){
         if(hasNext()){
-          if(figlioSin!=NULL) return figlioSin.info;
-          return figlioDx.info;
+          if(figlioSin!=NULL){
+            curr=curr.figlioSin;
+            return curr.info;
+          }
+          curr=curr.figlioDx;
+          return curr.info;
         }
         return NULL;
       }
