@@ -115,8 +115,7 @@ Le classi AlberoImpl e AlberoVuoto dovranno estendere UnicastRemoteObject
 
 class AlberoImpl extends UnicastRemoteObject implements Albero{
   public Albero synchronized add(String s){}
-}
-
+}//  mettere    "interfaccia
 class T1 extends Thread{
   Albero a;
   T1(Albero a){this.a=a;}
