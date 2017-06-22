@@ -68,7 +68,7 @@ class Controllore extends Thread{
         }
     }
 
-    private synchronized void gestisci_arrivo(){
+    private void gestisci_arrivo(){
         Aereo x;
         synchronized (coda_arrivi){
             if(coda_arrivi.isEmpty()==true){
