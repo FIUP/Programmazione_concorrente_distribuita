@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="library.AuthorUnitTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2017-11-15T17:56:39" hostname="giovanni-PC" time="0.055">
+  <properties/>
+  <testcase name="testMultipleParameterAuthorConstructor" classname="library.AuthorUnitTest" time="0.02"/>
+  <testcase name="testAuthorEquality" classname="library.AuthorUnitTest" time="0.001"/>
+  <testcase name="testSingleParameterAuthorConstructor" classname="library.AuthorUnitTest" time="0.001"/>
+  <testcase name="testMultipleParameterAuthorConstructor" classname="library.AuthorUnitTest" time="0.001"/>
+  <testcase name="testAuthorEquality" classname="library.AuthorUnitTest" time="0.001"/>
+  <testcase name="testSingleParameterAuthorConstructor" classname="library.AuthorUnitTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
