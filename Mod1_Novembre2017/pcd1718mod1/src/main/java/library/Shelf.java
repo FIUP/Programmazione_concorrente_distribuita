@@ -44,7 +44,7 @@ public final class Shelf implements Cloneable {
 	 * @return true if the book was added in the shelf, false otherwise
 	 */
 	public boolean addBookInShelf(Book b) {
-		if(shelf.size() < capacity){ capacity++; shelf.add(b); return true;}
+		if(shelf.size() < capacity){ shelf.add(b); return true;}
 		return false;
 	}
 
@@ -58,7 +58,7 @@ public final class Shelf implements Cloneable {
 	public int addBooksInSheld(Book[] book) {
 		int aggiunti = 0;
 		for(int i=0 ;shelf.size()<capacity && i<book.length;i++){
-			capacity ++; aggiunti++;
+			aggiunti++;
 			shelf.add(book[i]);
 		}
 		return aggiunti;
