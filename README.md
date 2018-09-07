@@ -1,2 +1,11 @@
-# P3-programmazione-concorrente-e-distribuita
-Repo dedicato al corso di P3 dell'uniPd. A.A. 16-17, Laurea in informatica
+# Programmazione Concorrente e Distribuita
+Repo dedicato al corso di [PCD](http://informatica.math.unipd.it/laurea/programmazioneconcorrenteedistribuita.html)
+a UniPD, Laurea in Informatica.
+
+## Set di Esercizi
+
+* [exerPCD1718mod1](exerPCD1718mod1): Primo dei set di esercizi assegnati dal professor Bujari.
+* [exerPCDapp1](exerpcdapp1): Terzo set di esercizi assegnati dal professore.
+
+**Nota**: manca la risoluzione del
+[secondo set](https://bitbucket.org/pcd1718/exerpcd1718mod2) di esercizi.
