@@ -1,5 +1,6 @@
 # Programmazione Concorrente e Distribuita
-Repo dedicato al [corso di PCD]() dell'UniPD, Laurea in Informatica.
+Repo dedicato al corso di [PCD](http://informatica.math.unipd.it/laurea/programmazioneconcorrenteedistribuita.html)
+a UniPD, Laurea in Informatica.
 
 ## Set di Esercizi
 
